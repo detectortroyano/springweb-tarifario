@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.springweb.web.dao.UserDAO;
+import com.springweb.web.system.WebUtil;
 
 @Service
 @Transactional(readOnly=true)
@@ -46,7 +47,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public Collection<? extends GrantedAuthority> getAuthorities(String role) {
 		List<String> roles= new ArrayList<String>();
 		roles.add( role );
-		List<GrantedAuthority> authList = getGrantedAuthorities( roles );
+		List<GrantedAuthority> authList = getGrantedAuthorities( WebUtil.getRoles(role) );
 		return authList;
 	}
 	

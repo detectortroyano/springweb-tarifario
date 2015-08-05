@@ -3,25 +3,28 @@ package com.springweb.web.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.CascadeType;
+import javax.persistence.GenerationType;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USERS")
+@Table(name="FUSERS")
 public class User implements java.io.Serializable{
 	
 		private static final long serialVersionUID = 1L;
 	
 	 	@Id 
-	    @GeneratedValue
+	    @SequenceGenerator(name = "IDFUSERS_SEQ_GENERADOR",allocationSize = 1, sequenceName = "IDFUSERS_SEQ")
+		@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "IDFUSERS_SEQ_GENERADOR")//	 	@GeneratedValue
 	 	@Column(name="ID", unique=true, nullable=false, precision=22, scale=0)	 	
 	    private Integer id;
 	     
-	    @Column(name="NAME")
+	    @Column(name="LOGIN")
 	    private String name;
 	 
 	    @Column(name="PASSWORD")
@@ -34,7 +37,7 @@ public class User implements java.io.Serializable{
 	    private String email;	    
 	    
 	    @OneToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST})
-	    @JoinTable(	name="USERROLES",  
+	    @JoinTable(	name="FUSER_ROLES",  
 			        joinColumns = {@JoinColumn(name="IDUSER", referencedColumnName="ID")},  
 			        inverseJoinColumns = {@JoinColumn(name="IDROLE", referencedColumnName="ID")}
 	    		  )

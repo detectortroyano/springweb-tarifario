@@ -20,13 +20,19 @@
 	<context:component-scan base-package="com.springweb.web" />
     	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-		p:location="/WEB-INF/config/db/jdbc.mysql.properties" />  	
+		p:location="/WEB-INF/config/db/jdbc.oracle.properties" />  	
     	
 	<!-- Default not dynamic database data. -->
 	<bean id="notDynamicDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
 		p:driverClassName="${jdbc.driverClassName}"
 		p:url="${jdbc.databaseurl}" p:username="${jdbc.username}"
-		p:password="${jdbc.password}" />
+		p:password="${jdbc.password}" 
+		p:minEvictableIdleTimeMillis="1800000"
+		p:timeBetweenEvictionRunsMillis="900000"
+		p:numTestsPerEvictionRun="-1"
+		p:minIdle="1"
+		p:maxActive="-1"
+		/> 
     	
 	<bean id="jspViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -61,9 +67,10 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<!-- mysql -->
+				<!-- oracle -->
 				<prop key="hibernate.dialect">${jdbc.dialect}</prop>
 				<prop key="hibernate.show_sql">false</prop>
+				<prop key="cglib.use_reflection_optimizer">true</prop>
 			</props>
 		</property>
 	</bean>

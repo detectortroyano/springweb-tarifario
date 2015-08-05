@@ -22,19 +22,20 @@ public abstract class System {
 	}
 	
 	//Constantes para Datos del Sistema
-	public static final String AMBIENTE_TIPO_SISTEMA="DESARROLLO";		
-	public static final String AMBIENTE_DB_MYSQL="mysql";
-	public static final String AMBIENTE_DB_ORACLE="oracle";
-	public static final String VERSION_SISTEMA= "0.5";		
+	public static final String AMBIENTE_TIPO_SISTEMA	="DESARROLLO";		
+	public static final String AMBIENTE_DB_MYSQL		="mysql";
+	public static final String AMBIENTE_DB_ORACLE		="oracle";
+	public static final String VERSION_SISTEMA			= "0.5";		
 	
-	public static String ROLE_ADMIN = "ROLE_ADMIN";
+	public static String ROLE_ADMIN 							= "ROLE_ADMIN";
+	public static String ROLE_ADMIN_DB 							= "ADMIN";
 	
 	//Constantes para Envio de Correo		
-	public static String SMTP_HOST_NAME= (String) properties.get("smtp.hostname");
-	public static String SMTP_ADDRESS=(String) properties.get("smtp.address");
-	public static String SMTP_USER=(String) properties.get("smtp.user");
-	public static String SMTP_PASSWORD=(String) properties.get("smtp.password");
-	public static String SMTP_PORT=(String) properties.get("smtp.port");
-	public static String SMTP_SECURITY=(String) properties.get("smtp.security");
+	public static String SMTP_HOST_NAME		= (String) properties.get("smtp.hostname");
+	public static String SMTP_ADDRESS		= (String) properties.get("smtp.address");
+	public static String SMTP_USER			= (String) properties.get("smtp.user");
+	public static String SMTP_PASSWORD		= (String) properties.get("smtp.password");
+	public static String SMTP_PORT  		= (String) properties.get("smtp.port");
+	public static String SMTP_SECURITY		= (String) properties.get("smtp.security");
 	
 }

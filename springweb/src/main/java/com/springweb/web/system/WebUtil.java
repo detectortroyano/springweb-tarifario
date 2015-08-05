@@ -1,6 +1,8 @@
 package com.springweb.web.system;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -36,5 +38,14 @@ public final class WebUtil{
 		if (isRolePresent) break;
 		}
 		return isRolePresent;
+	}
+	
+	public static List<String> getRoles(String role) {
+		List<String> roles= new ArrayList<String>();
+		if ( role.equals( System.ROLE_ADMIN_DB ) ) {
+			roles.add("ROLE_ADMIN");
+		}
+		return roles;
 	}	
+	
 }
