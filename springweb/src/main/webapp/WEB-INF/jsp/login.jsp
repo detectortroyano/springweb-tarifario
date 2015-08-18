@@ -1,32 +1,44 @@
 <%@ include file="/WEB-INF/jsp/includes/taglibs.jsp" %>
 <commons:headerPublic id="login" />
 
-	<div id="login-container">
-	    <div id="login-box">
-	        <div>
-	            	<c:if test="${error == true}">
-						<b class="error">Usuario o contrase&ntildea Invalidos.</b>
-					</c:if>
-					</p>            
-	                <form id="loginForm" name="loginForm" method="post" action="<c:url value='j_spring_security_check'/>" >
-	                    <table align="center">
-	                    <tbody>
-	                    <tr>
-	                        <td>Usuario</td>
-	                        <td><input class="input" type="text" name="j_username" id="j_username"size="30" maxlength="40"  /></td>
-	                    </tr>
-	                    <tr>
-	                        <td>Contrase&ntildea</td>
-	                        <td><input class="input" type="password" name="j_password" id="j_password" size="30" maxlength="32" /></td>
-	                    </tr>
-	                    <tr>
-	                    	<td></td>
-	                    	<td class="buttons"><input name="submit" class="form-button" type="submit" value="Aceptar" /></td>
-	                    </tr>                    
-	                    </tbody>
-	                    </table>
-	                </form> 
-	                <br/>
+<!-- Main -->
+<div class="container-fluid">
+    <div class="row">
+    				<div class="col-sm-4"></div>
+					<div class="col-sm-4">
+					<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="glyphicon glyphicon-lock pull-right"></i>
+                                <h4>Iniciar Session</h4>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+		            	<c:if test="${error == true}">
+							<b class="error">Usuario o contrase&ntildea Invalidos.</b>
+						</c:if>                        
+                            <form id="loginForm" name="loginForm" method="post" action="<c:url value='j_spring_security_check'/>" class="form form-vertical">
+                                <div class="form-group">
+                                    <label>Usuario</label>
+                                    <div class="controls">
+                                        <input type="text" name="j_username" id="j_username" class="form-control" placeholder="Usuario">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label>Contrase&ntildea</label>
+                                    <div class="controls">
+                                        <input type="text" name="j_password" id="j_password" class="form-control" placeholder="Contraseña">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label></label>
+                                    <div class="controls">
+                                        <button type="submit" class="btn btn-default">
+                                            Aceptar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
 	                <a href="${pageContext.request.contextPath}/recoverPassword">¿Olvido su contrase&ntildea?</a>	                                   
 		            <script type="text/javascript">
 		                $(document).ready(
@@ -34,9 +46,13 @@
 		                        $("#loginForm #j_username").focus();
 		                    }
 		                );
-		            </script>
-	        </div>
-	    </div>
-	</div>
+		            </script>                            
+                        </div>
+                        <!--/panel content-->
+                    </div>
+                    </div>
+    </div>
+</div>
+<!-- /Main -->                    
 
 <commons:footer />

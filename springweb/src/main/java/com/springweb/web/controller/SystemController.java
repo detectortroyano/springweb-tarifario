@@ -57,7 +57,13 @@ public class SystemController {
 		if( WebUtil.isRolePresent( grantedAuthority, System.ROLE_ADMIN ) ){
 			role = System.ROLE_ADMIN;
 			modelAndView = new ModelAndView("homeAdmin");
-		}
+		}else if( WebUtil.isRolePresent( grantedAuthority, System.ROLE_USER ) ){
+			role = System.ROLE_USER;
+			modelAndView = new ModelAndView("homeUser");
+		}else if( WebUtil.isRolePresent( grantedAuthority, System.ROLE_ADMINISTRADOR_TARIFAS ) ){
+			role = System.ROLE_ADMINISTRADOR_TARIFAS;
+			modelAndView = new ModelAndView("homeAdministradorTarifas");
+		}		
 		map.put("role", role);
 		return modelAndView;
 	}	

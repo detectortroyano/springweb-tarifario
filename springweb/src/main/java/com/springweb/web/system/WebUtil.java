@@ -40,10 +40,24 @@ public final class WebUtil{
 		return isRolePresent;
 	}
 	
+	public static String getMainRole() {
+		Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+		String role = "";
+		for (GrantedAuthority grantedAuthority : authorities) {
+			role = grantedAuthority.getAuthority();
+			break;
+		}
+		return role;
+	}	
+	
 	public static List<String> getRoles(String role) {
 		List<String> roles= new ArrayList<String>();
 		if ( role.equals( System.ROLE_ADMIN_DB ) ) {
 			roles.add("ROLE_ADMIN");
+		}else if ( role.equals( System.ROLE_USER_DB ) ) {
+			roles.add("ROLE_USER");
+		}else if ( role.equals( System.ROLE_ADMINISTRADOR_TARIFAS_DB ) ) {
+			roles.add("ROLE_ADMINISTRADOR_TARIFAS");
 		}
 		return roles;
 	}	

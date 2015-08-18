@@ -28,7 +28,11 @@ public abstract class System {
 	public static final String VERSION_SISTEMA			= "0.5";		
 	
 	public static String ROLE_ADMIN 							= "ROLE_ADMIN";
+	public static String ROLE_USER 								= "ROLE_USER";
+	public static String ROLE_ADMINISTRADOR_TARIFAS 		    = "ROLE_TARIFAS";
 	public static String ROLE_ADMIN_DB 							= "ADMIN";
+	public static String ROLE_USER_DB 							= "USER";
+	public static String ROLE_ADMINISTRADOR_TARIFAS_DB 		    = "ADMINISTRADOR_TARIFAS";
 	
 	//Constantes para Envio de Correo		
 	public static String SMTP_HOST_NAME		= (String) properties.get("smtp.hostname");
