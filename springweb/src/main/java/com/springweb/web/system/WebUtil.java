@@ -1,7 +1,10 @@
 package com.springweb.web.system;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.security.core.Authentication;
@@ -12,7 +15,50 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.springweb.web.entity.User;
 
 public final class WebUtil{
+	
+	/**
+	 * Method getFechaHoraString
+	 * 
+	 * @param date: la fecha como objeto java.util.Date
+	 * @return dateString: la fecha transformada a String con formato
+	 *         "yyyy-MM-dd HH:mm"
+	 */
+	public static String getFechaHoraFromDate(Date date) {
+		try{
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			return sdf.format(date);
+		}catch( Exception ex ){
+			return null;
+		}		
+	}
+	
+	/**
+	 * Method getFechaHoraFromString
+	 * 
+	 * @param fechaHora: la fecha como String con formato "yyyy-MM-dd HH:mm:ss"
+	 * @return date: la fecha transformada a un objeto java.util.Date
+	 */
+	public static Date getFechaHoraFromString(String fechaHora) {
+		try{
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			return sdf.parse(fechaHora);
+		}catch( Exception ex ){
+			return null;
+		}
+	}	
 
+	public static Date getFechaHoraActual(){
+		Date now = Calendar.getInstance().getTime();		
+		String fechaString = WebUtil.getFechaHoraFromDate(now);
+		Date fecha;
+		try {
+			fecha = WebUtil.getFechaHoraFromString(fechaString);
+		} catch (Exception e) {
+			fecha = now;
+		}
+		return fecha;
+	}	
+	
 	public static String getUserNameFromPrincipal(){
 		String userName = "";
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

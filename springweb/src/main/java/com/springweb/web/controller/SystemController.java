@@ -16,18 +16,21 @@ import com.springweb.web.system.WebUtil;
 @Controller
 public class SystemController {
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public ModelAndView indexPage(Map<String, Object> map) {		
 		Collection<GrantedAuthority> grantedAuthority = (Collection<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 		return getHomePage( map, grantedAuthority );
 	}	
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView raizPage(Map<String, Object> map) {		
 		Collection<GrantedAuthority> grantedAuthority = (Collection<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 		return getHomePage( map, grantedAuthority );
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/home", method=RequestMethod.GET)
 	public ModelAndView homePage(Map<String, Object> map) {	
 		Collection<GrantedAuthority> grantedAuthority = (Collection<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
@@ -45,6 +48,7 @@ public class SystemController {
 		modelAndView.addObject("error", true);
 		return modelAndView;
 	}
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/success-login", method=RequestMethod.GET)
 	public ModelAndView successLogin(Map<String, Object> map) {
 		Collection<GrantedAuthority> grantedAuthority = (Collection<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();

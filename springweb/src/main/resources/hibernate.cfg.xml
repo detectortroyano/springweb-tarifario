@@ -8,6 +8,12 @@
 
         <mapping class="com.springweb.web.entity.Role" />
         <mapping class="com.springweb.web.entity.User" />
+        
+        <mapping class="com.springweb.web.entity.tarifario.Constante" />
+        <mapping class="com.springweb.web.entity.tarifario.Variable" />
+        <mapping class="com.springweb.web.entity.tarifario.Ruta" />
+        <mapping class="com.springweb.web.entity.tarifario.Rutaspricehistory" />
+        <mapping class="com.springweb.web.entity.tarifario.Rutaspricehistorydetail" />
 
     </session-factory>
          

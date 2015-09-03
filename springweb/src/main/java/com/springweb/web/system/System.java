@@ -42,4 +42,7 @@ public abstract class System {
 	public static String SMTP_PORT  		= (String) properties.get("smtp.port");
 	public static String SMTP_SECURITY		= (String) properties.get("smtp.security");
 	
+	public static String SISTEMA_ERROR 			= "error";
+	public static String SISTEMA_MENSAJE_ERROR 	= "Ocurrio un error";
+	
 }

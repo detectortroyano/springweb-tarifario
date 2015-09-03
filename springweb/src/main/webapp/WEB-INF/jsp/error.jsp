@@ -1,5 +1,5 @@
 <%@ include file="/WEB-INF/jsp/includes/taglibs.jsp" %>
-<commons:header id="login" />
+<commons:headerUser id="login" />
 
 	<div id="login-container">
 	
